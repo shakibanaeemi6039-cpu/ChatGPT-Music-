@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10131f">
+<title>ChatGPT Music | استودیوی موسیقی رایگان</title>
+<style>
+:root{--bg:#0d1020;--panel:#171b2e;--panel2:#202640;--line:#343b59;--text:#f5f6ff;--muted:#b9bfd8;--mint:#83f0c7;--purple:#b8a2ff;--pink:#ff9ec9;--danger:#ff9a9a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,#29224a 0,transparent 33%),radial-gradient(circle at 90% 20%,#123b42 0,transparent 28%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+.wrap{max-width:1080px;margin:auto;padding:24px 16px 50px}.top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px}.logo{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(135deg,var(--mint),var(--purple));color:#10131f;font-size:26px;font-weight:bold}.brand h1{font-size:23px;margin:0}.brand p{color:var(--muted);margin:0;font-size:13px}.pill{border:1px solid var(--line);background:#171b2dcc;padding:8px 13px;border-radius:999px;font-size:13px;color:var(--mint)}
+.hero{padding:28px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(135deg,#202641e8,#171b2ee8);margin-bottom:20px}.eyebrow{color:var(--mint);font-size:13px;font-weight:bold}.hero h2{font-size:clamp(25px,4vw,39px);line-height:1.5;margin:7px 0 8px}.hero p{color:var(--muted);max-width:720px;margin:0 0 18px}.actions{display:flex;gap:10px;flex-wrap:wrap}
+button,.btn{border:0;cursor:pointer;font:inherit;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:13px;padding:11px 16px;font-weight:bold;transition:.18s}.primary{background:var(--mint);color:#0e1a1b}.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}.outline{background:transparent;color:var(--text);border:1px solid var(--line)}button:hover,.btn:hover{transform:translateY(-1px);filter:brightness(1.06)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:#171b2ef2;border:1px solid var(--line);border-radius:22px;padding:20px;min-width:0}.song{grid-column:span 7}.chat{grid-column:span 5}.tools{grid-column:span 12}.voice{grid-column:span 12}.card h3{margin:0 0 4px;font-size:19px}.sub{color:var(--muted);font-size:13px;margin:0 0 15px}.field{display:flex;flex-direction:column;gap:6px;margin:12px 0}.field label{font-size:13px;color:#dfe2f5}.field input,.field select,.field textarea{width:100%;background:#0f1324;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:11px 12px;font:inherit;outline:none}.field textarea{min-height:92px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--mint)}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quota{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#101526;border:1px solid var(--line);border-radius:15px;padding:12px 14px;margin:14px 0}.quota strong{color:var(--mint)}.small{font-size:12px;color:var(--muted)}.notice{padding:11px 13px;border-radius:12px;background:#27233a;color:#d9d0ff;font-size:12px;margin-top:12px}.result{background:#0f1324;border:1px solid var(--line);border-radius:15px;padding:14px;margin-top:14px;white-space:pre-wrap;overflow-wrap:anywhere;min-height:54px}.result:empty{display:none}.bars{display:flex;align-items:end;justify-content:center;gap:5px;height:44px;margin:10px auto}.bars span{width:6px;border-radius:9px;background:linear-gradient(var(--mint),var(--purple));height:12px}.bars.playing span{animation:wave .6s ease-in-out infinite alternate}.bars span:nth-child(2n){animation-delay:.14s}.bars span:nth-child(3n){animation-delay:.27s}@keyframes wave{to{height:39px}}
+.quick{display:flex;flex-wrap:wrap;gap:8px}.quick button{font-size:12px;padding:8px 10px}.linkgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.linkcard{border:1px solid var(--line);border-radius:16px;padding:16px;background:#111629}.linkcard .emoji{font-size:23px}.linkcard h4{margin:5px 0;font-size:15px}.linkcard p{font-size:12px;color:var(--muted);margin:0 0 12px}.linkcard .btn{width:100%;font-size:13px;padding:9px}.footer{color:var(--muted);font-size:12px;text-align:center;margin-top:24px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#f5f6ff;color:#111827;padding:10px 16px;border-radius:12px;box-shadow:0 10px 35px #0008;display:none;z-index:10;max-width:90vw;font-size:13px}.toast.show{display:block}.history{display:flex;flex-direction:column;gap:8px}.history button{justify-content:flex-start;text-align:right;font-size:12px;font-weight:normal}.effects{grid-column:span 12}.effect-buttons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.effect-buttons button{min-height:56px}.effect-status{min-height:25px;color:var(--mint);font-size:13px;margin-top:8px}@media(max-width:760px){.effect-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.song,.chat,.voice{grid-column:span 12}.linkgrid{grid-template-columns:1fr}.hero{padding:21px}.brand h1{font-size:19px}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="logo">♫</div><div><h1>ChatGPT Music</h1><p>ایده‌پردازی، ملودی و آزمایش صدای شعر در یک‌جا</p></div></div>
+  <div class="pill" id="quotaPill">🎵 ۳ ساخت رایگان امروز</div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">استودیوی خلاقیت موسیقی</div>
+  <h2>ایده‌ات را به یک آهنگ تبدیل کن ✨</h2>
+  <p>شعر و سبک موسیقی را انتخاب کن، ملودی ساده بساز، متن را با صدای گفتاری مرورگر بشنو و برای آهنگ کامل با خواننده به سرویس‌های رسمی برو.</p>
+  <div class="actions">
+    <a class="btn primary" href="https://chatgpt.com/" target="_blank" rel="noopener">گفت‌وگو با ChatGPT رسمی ↗</a>
+    <a class="btn secondary" href="https://suno.com/" target="_blank" rel="noopener">ساخت آهنگ در Suno ↗</a>
+  </div>
+</section>
+
+<div class="grid">
+<section class="card song">
+  <h3>🎼 ساخت ملودی و ایده آهنگ</h3>
+  <p class="sub">روزانه تا ۳ بار ساخت ایده و ملودی در همین مرورگر</p>
+  <div class="quota"><div><strong id="remaining">۳</strong> فرصت ساخت باقی مانده</div><span class="small" id="resetLabel">بازنشانی در روز بعد</span></div>
+  <div class="field"><label for="topic">موضوع یا حس آهنگ</label><input id="topic" placeholder="مثلاً عشق، امید، دلتنگی، جشن..." maxlength="180"></div>
+  <div class="two">
+    <div class="field"><label for="style">سبک موسیقی</label><select id="style"><option>پاپ</option><option>سنتی ایرانی</option><option>رپ</option><option>راک</option><option>آرام و احساسی</option><option>الکترونیک</option><option>شاد و رقص</option><option>سینمایی</option></select></div>
+    <div class="field"><label for="mood">حال‌وهوا</label><select id="mood"><option>امیدبخش</option><option>عاشقانه</option><option>غمگین</option><option>شاد</option><option>حماسی</option><option>آرامش‌بخش</option></select></div>
+  </div>
+  <div class="two">
+    <div class="field"><label for="tempo">سرعت</label><select id="tempo"><option value="slow">آرام</option><option value="mid" selected>متوسط</option><option value="fast">تند</option></select></div>
+    <div class="field"><label for="instrument">ساز اصلی</label><select id="instrument"><option value="piano">پیانو</option><option value="synth">سینت‌سایزر</option><option value="pluck">صدای زخمه‌ای</option></select></div>
+  </div>
+  <div class="field"><label for="vocalTone">صدای آوازی مصنوعی همراه ملودی</label><select id="vocalTone"><option value="aaa" selected>🎤 آآآ — صدای آوازی</option><option value="ooo">🎶 اووو — صدای آوازی</option><option value="none">فقط ملودی، بدون صدای آوازی</option></select><span class="small">این صدا با فناوری صوتی مرورگر ساخته می‌شود؛ خواننده واقعی یا صدای هوش مصنوعی نیست.</span></div>
+  <div class="actions"><button class="primary" id="generate">✨ ساخت ایده و ملودی</button><button class="secondary" id="play" disabled>▶ پخش ملودی</button><button class="outline" id="stop" disabled>■ توقف</button></div>
+  <div class="bars" id="bars" aria-label="نمایش موج موسیقی"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="result" id="songResult" aria-live="polite"></div>
+  <div class="actions" style="margin-top:12px"><button class="outline" id="copySong" disabled>کپی ایده و پرامپت</button><button class="outline" id="downloadAudio" disabled>⬇ دانلود ملودی WAV</button><button class="outline" id="openSuno" disabled>رفتن به Suno با پرامپت ↗</button></div>
+  <div class="notice">می‌توانی ملودی را با صدای مصنوعی «آآآ» یا «اووو» بشنوی و آن را در فایل WAV هم دانلود کنی. این صدای شبیه‌سازی‌شده برای ایده‌پردازی است، نه آواز واقعی یا خواننده انسانی.</div>
+</section>
+
+
+<section class="card effects">
+  <h3>🔊 استودیوی افکت صوتی رایگان</h3>
+  <p class="sub">افکت‌ها به‌صورت زنده در مرورگر ساخته می‌شوند؛ بدون دانلود فایل خارجی، حساب کاربری یا API. هر دکمه را بزن تا صدا را بشنوی.</p>
+  <div class="effect-buttons">
+    <button class="secondary" data-effect="drum">🥁 ضربه درام</button>
+    <button class="secondary" data-effect="bass">🔊 بیس بم</button>
+    <button class="secondary" data-effect="beep">📟 بوق الکترونیکی</button>
+    <button class="secondary" data-effect="laser">🚀 لیزر / سینت</button>
+    <button class="secondary" data-effect="meow">🐈 میو مصنوعی</button>
+    <button class="secondary" data-effect="wind">🌬️ صدای باد</button>
+    <button class="secondary" data-effect="chime">✨ زنگ درخشان</button>
+    <button class="secondary" data-effect="clap">👏 دست‌زدن مصنوعی</button>
+  </div>
+  <div class="two" style="margin-top:14px">
+    <div class="field"><label for="effectSelect">افکت برای شنیدن یا دانلود</label><select id="effectSelect"><option value="drum">ضربه درام</option><option value="bass">بیس بم</option><option value="beep">بوق الکترونیکی</option><option value="laser">لیزر / سینت</option><option value="meow">میو مصنوعی</option><option value="wind">صدای باد</option><option value="chime">زنگ درخشان</option><option value="clap">دست‌زدن مصنوعی</option></select></div>
+    <div class="field"><label for="effectVolume">بلندی افکت</label><input id="effectVolume" type="range" min="10" max="100" value="65"><span class="small">صداها در خود مرورگر ساخته می‌شوند. «میو» و «دست‌زدن» افکت مصنوعی‌اند، نه ضبط واقعی.</span></div>
+  </div>
+  <div class="actions"><button class="primary" id="playEffect">▶ پخش افکت انتخابی</button><button class="secondary" id="downloadEffect">⬇ دانلود افکت WAV</button></div>
+  <div class="effect-status" id="effectStatus" aria-live="polite">یک افکت را انتخاب کن و پخش را بزن.</div>
+  <div class="notice">این افکت‌ها رایگان و بدون فایل خارجی تولید می‌شوند. آن‌ها نمونه‌های صوتی مصنوعی‌اند و قرار نیست صدای ضبط‌شده‌ی گربه یا صدای خواننده‌ی واقعی باشند.</div>
+</section>
+
+<section class="card voice">
+  <h3>🎙️ صدای شعر و خواننده</h3>
+  <p class="sub">متن شعر را آماده کن و برای آواز واقعی با هوش مصنوعی به Suno بفرست. صدای مرورگر فقط گفتار است و آواز نمی‌خواند.</p>
+  <div class="field"><label for="lyrics">متن شعر</label><textarea id="lyrics" placeholder="شعرت را اینجا بنویس…">تو روشنای صبح فردا، دوباره سبز می‌شوم
+با هر قدم، با هر نفس، به سمت رویا می‌روم</textarea></div>
+  <div class="two">
+    <div class="field"><label for="voiceLanguage">زبان خوانش</label><select id="voiceLanguage"><option value="fa-IR" selected>فارسی</option><option value="en-US">انگلیسی</option></select></div>
+    <div class="field"><label for="voiceChoice">صدای موجود در دستگاه</label><select id="voiceChoice"><option value="">صدای پیش‌فرض مرورگر</option></select></div>
+  </div>
+  <div class="actions"><button class="secondary" id="speakLyrics">🔊 شنیدن گفتاری شعر</button><button class="secondary" id="stopVoice">■ توقف صدا</button><button class="primary" id="makeVocalPrompt">🎤 آماده‌سازی آواز هوش مصنوعی</button><a class="btn outline" href="https://suno.com/create" target="_blank" rel="noopener">باز کردن Suno Create ↗</a></div>
+  <div class="result" id="voiceStatus" aria-live="polite"></div>
+  <div class="field" id="vocalPromptWrap" style="display:none"><label for="vocalPromptResult">پرامپت آماده برای Suno (در بخش Lyrics شعر خودت را وارد کن)</label><textarea id="vocalPromptResult" readonly></textarea><div class="actions"><button class="secondary" id="copyVocalPrompt">کپی پرامپت</button><a class="btn primary" href="https://suno.com/create" target="_blank" rel="noopener">رفتن به ساخت آهنگ ↗</a></div></div>
+  <div class="notice">شفاف‌سازی مهم: «شنیدن گفتاری شعر» صدای گفتار مرورگر است و آواز خوانندگی نیست. برای تولید آواز واقعی، این سایت پرامپت را آماده می‌کند و تو آن را در Suno Create وارد می‌کنی؛ تولید آواز داخل خود این سایت انجام نمی‌شود. این قابلیت سهمیه ۳ ملودی روزانه را مصرف نمی‌کند.</div>
+</section>
+
+<section class="card chat">
+  <h3>💬 دستیار ایده‌پردازی</h3>
+  <p class="sub">پرامپتت را آماده کن و برای دریافت پاسخ واقعی در ChatGPT باز کن.</p>
+  <div class="field"><label for="request">چه کمکی می‌خواهی؟</label><textarea id="request" placeholder="مثلاً برای آهنگ پاپ فارسی درباره امید، شعر و پرامپت حرفه‌ای بنویس..."></textarea></div>
+  <div class="quick">
+    <button class="secondary" data-prompt="برای یک آهنگ پاپ فارسی درباره امید، شعر بند و ترجیع‌بند بنویس.">شعر امید</button>
+    <button class="secondary" data-prompt="یک پرامپت حرفه‌ای برای ساخت آهنگ عاشقانه فارسی با صدای گرم و پیانو بنویس.">پرامپت عاشقانه</button>
+    <button class="secondary" data-prompt="برای یک آهنگ شاد ایرانی، ایده شعر و سازبندی پیشنهاد بده.">آهنگ شاد</button>
+  </div>
+  <div class="actions" style="margin-top:14px"><button class="primary" id="prepareChat">آماده‌سازی و کپی درخواست</button><a class="btn secondary" href="https://chatgpt.com/" target="_blank" rel="noopener">بازکردن ChatGPT ↗</a></div>
+  <div class="result" id="chatStatus" aria-live="polite"></div>
+  <div class="notice">برای امنیت و رایگان ماندن این فایل، پاسخ ChatGPT مستقیماً داخل سایت نمایش داده نمی‌شود؛ درخواست را به ChatGPT رسمی می‌بری. این سایت وانمود نمی‌کند که API پولی دارد.</div>
+  <h3 style="margin-top:22px">🕘 ایده‌های این مرورگر</h3>
+  <p class="sub">آخرین ایده‌هایی که همین‌جا ساخته‌ای</p>
+  <div class="history" id="history"><span class="small">هنوز ایده‌ای نساخته‌ای.</span></div>
+</section>
+
+<section class="card tools">
+  <h3>🌐 سه قابلیت در یک‌جا</h3>
+  <p class="sub">ابزار داخلی رایگان، پاسخ‌های ChatGPT و سرویس ساخت آهنگ کامل</p>
+  <div class="linkgrid">
+    <div class="linkcard"><div class="emoji">🎹</div><h4>ملودی‌ساز داخلی</h4><p>ساخت ملودی بی‌کلام ساده در همین مرورگر؛ بدون حساب و API.</p><button class="btn primary" onclick="document.getElementById('topic').focus()">شروع ساخت</button></div>
+    <div class="linkcard"><div class="emoji">🤖</div><h4>ChatGPT رسمی</h4><p>برای شعر، ترانه، بازنویسی و پرامپت از نسخه رسمی ChatGPT کمک بگیر.</p><a class="btn secondary" href="https://chatgpt.com/" target="_blank" rel="noopener">رفتن به ChatGPT ↗</a></div>
+    <div class="linkcard"><div class="emoji">🎧</div><h4>ساخت آهنگ کامل</h4><p>برای امتحان ساخت آهنگ با آواز، سرویس Suno را باز کن؛ شرایط و سهمیه رایگانش ممکن است تغییر کند.</p><a class="btn secondary" href="https://suno.com/" target="_blank" rel="noopener">رفتن به Suno ↗</a></div>
+  </div>
+</section>
+</div>
+<div class="footer">نسخه رایگان مرورگری • بدون API key • سهمیه روزانه فقط روی همین مرورگر ذخیره می‌شود و محدودیت سروری نیست.</div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(() => {
+const LIMIT=3, DAY_KEY='chatgptMusicDay', COUNT_KEY='chatgptMusicCount', HIST_KEY='chatgptMusicHistory';
+const $=id=>document.getElementById(id);
+let audioCtx=null, activeNodes=[], melody=[], lastPrompt='', isPlaying=false;
+function today(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function quota(){if(localStorage.getItem(DAY_KEY)!==today()){localStorage.setItem(DAY_KEY,today());localStorage.setItem(COUNT_KEY,'0')}return Math.max(0,LIMIT-Number(localStorage.getItem(COUNT_KEY)||0))}
+function renderQuota(){const n=quota();$('remaining').textContent=n;$('quotaPill').textContent=`🎵 ${n} از ${LIMIT} ساخت رایگان امروز`;$('generate').disabled=n===0;$('generate').textContent=n===0?'⏳ سهمیه امروز تمام شد':'✨ ساخت ایده و ملودی'}
+function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2500)}
+function escapeText(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function getHistory(){try{return JSON.parse(localStorage.getItem(HIST_KEY)||'[]')}catch{return []}}
+function addHistory(topic,style,mood,prompt){const h=getHistory();h.unshift({topic,style,mood,prompt,date:new Date().toLocaleString('fa-IR')});localStorage.setItem(HIST_KEY,JSON.stringify(h.slice(0,5)));renderHistory()}
+function renderHistory(){const h=getHistory();$('history').innerHTML=h.length?h.map((x,i)=>`<button class="secondary" data-history="${i}">🎵 ${escapeText(x.topic||'ایده موسیقی')} — ${escapeText(x.style)} <span class="small">(${escapeText(x.date)})</span></button>`).join(''):'<span class="small">هنوز ایده‌ای نساخته‌ای.</span>';$('history').querySelectorAll('[data-history]').forEach(b=>b.addEventListener('click',()=>{const x=getHistory()[Number(b.dataset.history)];if(x){$('songResult').textContent=x.prompt;lastPrompt=x.prompt;melody=makeMelody();$('play').disabled=false;$('copySong').disabled=false;$('downloadAudio').disabled=false;$('openSuno').disabled=false}}))}
+function makePrompt(topic,style,mood,tempo,instrument){const speed={slow:'آرام، حدود 72 BPM',mid:'متوسط، حدود 100 BPM',fast:'تند، حدود 124 BPM'}[tempo];const ins={piano:'پیانو',synth:'سینت‌سایزر',pluck:'ساز زخمه‌ای'}[instrument];return `ایده آهنگ: ${topic||'یک قطعه الهام‌بخش'}\nسبک: ${style}\nحال‌وهوا: ${mood}\nسرعت پیشنهادی: ${speed}\nساز اصلی: ${ins}\n\nپیشنهاد شعر:\n${topic||'امید و رویا'}، در دل شب چراغی روشن است\nراه اگر دور و پر از پیچ‌وخم است، باز هم فردا از آنِ ماست\n\nترجیع‌بند پیشنهادی:\nبا صدای قلبم، رو به فردا می‌روم\nاز میان ابرها، سوی رویا می‌روم\n\nپرامپت پیشنهادی برای ابزار ساخت آهنگ:\nCreate an original ${style} song with a ${mood} mood, ${speed.toLowerCase()}, featuring ${ins}. Theme: ${topic||'hope and new beginnings'}. Memorable chorus, polished arrangement, original melody.`}
+function makeMelody(){const scale=[0,2,4,7,9,12,9,7,4,2,0,4,7,9,7,4];return scale.map((n,i)=>({freq:261.63*Math.pow(2,n/12),duration:({slow:.48,mid:.32,fast:.22}[$('tempo').value]),index:i}))}
+function stopMelody(){activeNodes.forEach(n=>{try{n.stop()}catch{}});activeNodes=[];isPlaying=false;$('bars').classList.remove('playing');$('play').textContent='▶ پخش ملودی';$('stop').disabled=true}
+function addVocalTone(ctx,destination,freq,start,duration,vowel,amp=.018){
+  if(vowel==='none')return [];
+  const osc=ctx.createOscillator(), master=ctx.createGain();
+  const formants=vowel==='ooo'?[450,800,2830]:[800,1150,2900];
+  const levels=vowel==='ooo'?[1,.48,.12]:[1,.58,.18];
+  osc.type='sawtooth';osc.frequency.setValueAtTime(freq,start);
+  master.gain.setValueAtTime(.0001,start);master.gain.exponentialRampToValueAtTime(amp,start+.045);master.gain.setValueAtTime(amp,start+duration*.68);master.gain.exponentialRampToValueAtTime(.0001,start+duration*.94);
+  formants.forEach((f,i)=>{const filter=ctx.createBiquadFilter(),gain=ctx.createGain();filter.type='bandpass';filter.frequency.value=f;filter.Q.value=i===0?7:10;gain.gain.value=levels[i];osc.connect(filter);filter.connect(gain);gain.connect(master)});
+  master.connect(destination);osc.start(start);osc.stop(start+duration);return [osc];
+}
+async function playMelody(){if(!melody.length)return;stopMelody();const AC=window.AudioContext||window.webkitAudioContext;if(!AC){toast('مرورگر شما پخش صوت را پشتیبانی نمی‌کند.');return}audioCtx=audioCtx||new AC();if(audioCtx.state==='suspended')await audioCtx.resume();isPlaying=true;$('bars').classList.add('playing');$('play').textContent='♫ در حال پخش';$('stop').disabled=false;let t=audioCtx.currentTime+.08;const timbre=$('instrument').value,vowel=$('vocalTone').value;melody.forEach((note)=>{const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();osc.type=timbre==='piano'?'triangle':timbre==='synth'?'sawtooth':'sine';osc.frequency.value=note.freq;gain.gain.setValueAtTime(.0001,t);gain.gain.exponentialRampToValueAtTime(timbre==='synth'?.045:.075,t+.02);gain.gain.exponentialRampToValueAtTime(.0001,t+note.duration*.9);osc.connect(gain);gain.connect(audioCtx.destination);osc.start(t);osc.stop(t+note.duration);activeNodes.push(osc);activeNodes.push(...addVocalTone(audioCtx,audioCtx.destination,note.freq,t,note.duration,vowel));t+=note.duration});setTimeout(()=>{if(isPlaying)stopMelody()},melody.reduce((s,n)=>s+n.duration,0)*1000+300)}
+
+function scheduleEffect(ctx,type,start,destination,volume=.65){
+  const nodes=[]; const add=(node)=>{nodes.push(node);return node};
+  const gain=ctx.createGain();gain.gain.value=Math.max(.02,Math.min(1,volume));gain.connect(destination);
+  const osc=(freq,wave='sine',at=start,dur=.35,endFreq=null,level=.7)=>{
+    const o=add(ctx.createOscillator()),g=ctx.createGain();o.type=wave;o.frequency.setValueAtTime(freq,at);if(endFreq!==null)o.frequency.exponentialRampToValueAtTime(Math.max(1,endFreq),at+dur);g.gain.setValueAtTime(.0001,at);g.gain.exponentialRampToValueAtTime(level,at+.012);g.gain.exponentialRampToValueAtTime(.0001,at+dur);o.connect(g);g.connect(gain);o.start(at);o.stop(at+dur+.02);return o;
+  };
+  const noise=(at,dur,level=.5,filterType='highpass',cutoff=1200)=>{
+    const length=Math.max(1,Math.floor(ctx.sampleRate*dur)),buf=ctx.createBuffer(1,length,ctx.sampleRate),data=buf.getChannelData(0);
+    for(let i=0;i<length;i++)data[i]=(Math.random()*2-1)*(1-i/length);
+    const src=add(ctx.createBufferSource()),filter=ctx.createBiquadFilter(),g=ctx.createGain();src.buffer=buf;filter.type=filterType;filter.frequency.value=cutoff;g.gain.setValueAtTime(level,at);g.gain.exponentialRampToValueAtTime(.0001,at+dur);src.connect(filter);filter.connect(g);g.connect(gain);src.start(at);src.stop(at+dur+.02);
+  };
+  if(type==='drum'){osc(125,'sine',start,.42,42,.95);noise(start,.16,.48,'lowpass',1500)}
+  else if(type==='bass'){osc(78,'sawtooth',start,.65,42,.7);osc(39,'sine',start,.5,32,.6)}
+  else if(type==='beep'){osc(880,'square',start,.18,880,.45);osc(660,'square',start+.22,.22,660,.4)}
+  else if(type==='laser'){osc(950,'sawtooth',start,.48,90,.5);osc(470,'triangle',start+.04,.35,120,.3)}
+  else if(type==='meow'){osc(620,'triangle',start,.42,390,.4);osc(880,'sine',start,.38,520,.18);osc(410,'triangle',start+.28,.25,250,.28)}
+  else if(type==='wind'){noise(start,.9,.42,'lowpass',900);osc(180,'sine',start,.85,95,.15)}
+  else if(type==='chime'){[880,1108,1320].forEach((f,i)=>osc(f,'sine',start+i*.07,.8,f*.72,.24))}
+  else if(type==='clap'){noise(start,.22,.9,'highpass',1400);noise(start+.07,.16,.45,'highpass',1900);}
+  gain.gain.setValueAtTime(Math.max(.02,Math.min(1,volume)),start);
+  gain.gain.setValueAtTime(Math.max(.02,Math.min(1,volume)),start+.01);
+  gain.gain.setTargetAtTime(.0001,start+(type==='wind'?.65:type==='chime'?.5:.18),type==='wind'?.15:.07);
+  return nodes;
+}
+let effectCtx=null, effectNodes=[];
+async function playSelectedEffect(){
+  const AC=window.AudioContext||window.webkitAudioContext;if(!AC){$('effectStatus').textContent='این مرورگر از Web Audio پشتیبانی نمی‌کند.';return}
+  effectNodes.forEach(n=>{try{n.stop()}catch{}});effectNodes=[];
+  effectCtx=effectCtx||new AC();if(effectCtx.state==='suspended')await effectCtx.resume();
+  const type=$('effectSelect').value,vol=Number($('effectVolume').value)/100;
+  effectNodes=scheduleEffect(effectCtx,type,effectCtx.currentTime+.04,effectCtx.destination,vol);
+  $('effectStatus').textContent='افکت در حال پخش است. برای صدای دیگر، افکت دیگری انتخاب کن.';
+}
+async function downloadSelectedEffect(){
+  const Offline=window.OfflineAudioContext||window.webkitOfflineAudioContext;
+  if(!Offline){toast('مرورگر از ساخت WAV پشتیبانی نمی‌کند.');return}
+  const type=$('effectSelect').value,vol=Number($('effectVolume').value)/100,rate=44100,duration=type==='wind'?1.25:type==='chime'?1.35:1.0;
+  const ctx=new Offline(1,Math.ceil(rate*duration),rate);scheduleEffect(ctx,type,.05,ctx.destination,vol);
+  $('downloadEffect').disabled=true;$('downloadEffect').textContent='در حال ساخت WAV…';
+  try{const rendered=await ctx.startRendering(),blob=audioBufferToWav(rendered),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='chatgpt-music-effect-'+type+'.wav';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);$('effectStatus').textContent='فایل WAV افکت دانلود شد.'}
+  catch(e){$('effectStatus').textContent='ساخت فایل ناموفق بود؛ در مرورگر جدید امتحان کن.'}
+  finally{$('downloadEffect').disabled=false;$('downloadEffect').textContent='⬇ دانلود افکت WAV'}
+}
+document.querySelectorAll('[data-effect]').forEach(b=>b.addEventListener('click',()=>{$('effectSelect').value=b.dataset.effect;playSelectedEffect()}));
+$('playEffect').addEventListener('click',playSelectedEffect);$('downloadEffect').addEventListener('click',downloadSelectedEffect);
+
+function audioBufferToWav(buffer){
+  const channels=buffer.numberOfChannels, sampleRate=buffer.sampleRate, frames=buffer.length;
+  const bytesPerSample=2, blockAlign=channels*bytesPerSample, dataSize=frames*blockAlign;
+  const out=new ArrayBuffer(44+dataSize), view=new DataView(out);
+  const writeStr=(offset,str)=>{for(let i=0;i<str.length;i++)view.setUint8(offset+i,str.charCodeAt(i));};
+  writeStr(0,'RIFF');view.setUint32(4,36+dataSize,true);writeStr(8,'WAVE');writeStr(12,'fmt ');
+  view.setUint32(16,16,true);view.setUint16(20,1,true);view.setUint16(22,channels,true);
+  view.setUint32(24,sampleRate,true);view.setUint32(28,sampleRate*blockAlign,true);
+  view.setUint16(32,blockAlign,true);view.setUint16(34,16,true);writeStr(36,'data');view.setUint32(40,dataSize,true);
+  const channelData=Array.from({length:channels},(_,i)=>buffer.getChannelData(i));
+  let offset=44;
+  for(let i=0;i<frames;i++)for(let ch=0;ch<channels;ch++){
+    const sample=Math.max(-1,Math.min(1,channelData[ch][i]));
+    view.setInt16(offset,sample<0?sample*0x8000:sample*0x7fff,true);offset+=2;
+  }
+  return new Blob([out],{type:'audio/wav'});
+}
+async function downloadMelodyWav(){
+  if(!melody.length){toast('اول یک ملودی بساز.');return}
+  const Offline=window.OfflineAudioContext||window.webkitOfflineAudioContext;
+  if(!Offline){toast('مرورگر شما خروجی WAV را پشتیبانی نمی‌کند. از مرورگر جدید استفاده کن.');return}
+  const rate=44100, duration=melody.reduce((s,n)=>s+n.duration,0)+0.25;
+  const ctx=new Offline(1,Math.ceil(rate*duration),rate);
+  const timbre=$('instrument').value,vowel=$('vocalTone').value;let t=0.08;
+  melody.forEach(note=>{
+    const osc=ctx.createOscillator(), gain=ctx.createGain();
+    osc.type=timbre==='piano'?'triangle':timbre==='synth'?'sawtooth':'sine';
+    osc.frequency.value=note.freq;
+    gain.gain.setValueAtTime(0.0001,t);
+    gain.gain.exponentialRampToValueAtTime(timbre==='synth'?0.045:0.075,t+0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001,t+note.duration*0.9);
+    osc.connect(gain);gain.connect(ctx.destination);osc.start(t);osc.stop(t+note.duration);
+    addVocalTone(ctx,ctx.destination,note.freq,t,note.duration,vowel,.02);
+    t+=note.duration;
+  });
+  $('downloadAudio').disabled=true;$('downloadAudio').textContent='در حال آماده‌سازی…';
+  try{
+    const rendered=await ctx.startRendering();
+    const blob=audioBufferToWav(rendered), url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download='chatgpt-music-melody-with-vocal-tone.wav';
+    document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+    toast('فایل ملودی WAV دانلود شد.');
+  }catch(e){toast('ساخت فایل ناموفق بود؛ دوباره امتحان کن.')}
+  finally{$('downloadAudio').disabled=false;$('downloadAudio').textContent='⬇ دانلود ملودی WAV'}
+}
+
+$('generate').addEventListener('click',()=>{if(quota()<=0){renderQuota();toast('سهمیه امروز تمام شده؛ فردا دوباره امتحان کن.');return}const topic=$('topic').value.trim(),style=$('style').value,mood=$('mood').value;lastPrompt=makePrompt(topic,style,mood,$('tempo').value,$('instrument').value);$('songResult').textContent=lastPrompt;melody=makeMelody();localStorage.setItem(COUNT_KEY,String(Number(localStorage.getItem(COUNT_KEY)||0)+1));addHistory(topic,style,mood,lastPrompt);renderQuota();$('play').disabled=false;$('copySong').disabled=false;$('downloadAudio').disabled=false;$('openSuno').disabled=false;toast('ایده و ملودی ساخته شد!');});
+$('play').addEventListener('click',playMelody);$('stop').addEventListener('click',stopMelody);$('downloadAudio').addEventListener('click',downloadMelodyWav);
+$('copySong').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(lastPrompt);toast('ایده و پرامپت کپی شد.')}catch{$('songResult').focus?.();toast('متن را از کادر انتخاب و کپی کن.')}});
+$('openSuno').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(lastPrompt)}catch{}window.open('https://suno.com/','_blank','noopener');toast('پرامپت آماده شد؛ اگر کپی نشد، از کادر بالا کپی کن و در Suno وارد کن.')});
+document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{$('request').value=b.dataset.prompt}));
+$('prepareChat').addEventListener('click',async()=>{const val=$('request').value.trim();if(!val){toast('اول درخواستت را بنویس یا یکی از پیشنهادها را انتخاب کن.');return}try{await navigator.clipboard.writeText(val);$('chatStatus').textContent='درخواست کپی شد. حالا ChatGPT رسمی را باز کن و متن را در کادر گفتگو بچسبان.';toast('درخواست کپی شد.')}catch{$('chatStatus').textContent='متن درخواست را انتخاب و کپی کن، سپس در ChatGPT رسمی بچسبان.'}});
+
+function loadSpeechVoices(){
+  if(!('speechSynthesis' in window)) return;
+  const select=$('voiceChoice'), previous=select.value;
+  const voices=window.speechSynthesis.getVoices();
+  select.innerHTML='<option value="">صدای پیش‌فرض مرورگر</option>';
+  voices.forEach((v,i)=>{const opt=document.createElement('option');opt.value=String(i);opt.textContent=`${v.name} (${v.lang})`;opt.dataset.voiceName=v.name;select.appendChild(opt)});
+  if(previous && [...select.options].some(o=>o.value===previous))select.value=previous;
+}
+function speakLyrics(){
+  const text=$('lyrics').value.trim();
+  if(!text){toast('اول متن شعر را وارد کن.');return}
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){$('voiceStatus').textContent='مرورگر شما قابلیت خواندن متن با صدا را پشتیبانی نمی‌کند. مرورگر جدیدتری را امتحان کن.';return}
+  window.speechSynthesis.cancel();
+  const utterance=new SpeechSynthesisUtterance(text);
+  utterance.lang=$('voiceLanguage').value;utterance.rate=0.88;utterance.pitch=1;
+  const idx=$('voiceChoice').value, voices=window.speechSynthesis.getVoices();
+  if(idx!=='' && voices[Number(idx)]) utterance.voice=voices[Number(idx)];
+  utterance.onstart=()=>{$('voiceStatus').textContent='در حال خواندن شعر با صدای گفتاری دستگاه…';$('speakLyrics').disabled=true};
+  utterance.onend=()=>{$('voiceStatus').textContent='خواندن شعر تمام شد. این گفتار است، نه آواز خوانندگی.';$('speakLyrics').disabled=false};
+  utterance.onerror=()=>{$('voiceStatus').textContent='پخش صدا انجام نشد. پشتیبانی صدای انتخاب‌شده را در تنظیمات دستگاه بررسی کن.';$('speakLyrics').disabled=false};
+  window.speechSynthesis.speak(utterance);
+}
+$('speakLyrics').addEventListener('click',speakLyrics);
+$('stopVoice').addEventListener('click',()=>{if('speechSynthesis' in window)window.speechSynthesis.cancel();$('speakLyrics').disabled=false;$('voiceStatus').textContent='پخش صدا متوقف شد.'});
+$('makeVocalPrompt').addEventListener('click',async()=>{
+  const lyrics=$('lyrics').value.trim();
+  if(!lyrics){toast('اول متن شعر را وارد کن.');return}
+  const prompt=`Create a complete original ${$('style').value} song with lead vocals singing in ${$('voiceLanguage').value==='fa-IR'?'Persian':'English'}. Mood: ${$('mood').value}. Tempo: ${{slow:'slow',mid:'medium',fast:'fast'}[$('tempo').value]}. Main instrument: ${{piano:'piano',synth:'synthesizer',pluck:'plucked instrument'}[$('instrument').value]}. Sing the supplied lyrics clearly and melodically. Add a memorable chorus and full instrumental accompaniment.\n\nUse these exact lyrics in the Lyrics field:\n${lyrics}`;
+  $('vocalPromptResult').value=prompt;
+  $('vocalPromptWrap').style.display='flex';
+  $('voiceStatus').textContent='پرامپت آماده شد. آن را کپی کن، Suno Create را باز کن و در بخش Style/Description بچسبان؛ شعر را هم در بخش Lyrics وارد کن. سپس Create را بزن.';
+  try{await navigator.clipboard.writeText(prompt);toast('پرامپت کپی شد؛ آن را در Suno وارد کن.')}catch{toast('پرامپت آماده شد؛ از دکمه کپی استفاده کن.');}
+});
+$('copyVocalPrompt').addEventListener('click',async()=>{const prompt=$('vocalPromptResult').value;try{await navigator.clipboard.writeText(prompt);toast('پرامپت کپی شد.')}catch{$('vocalPromptResult').focus();$('vocalPromptResult').select();toast('متن انتخاب شد؛ برای کپی Ctrl+C را بزن.')}});
+if('speechSynthesis' in window){loadSpeechVoices();window.speechSynthesis.addEventListener?.('voiceschanged',loadSpeechVoices)}
+renderQuota();renderHistory();
+})();
+</script>
+</body>
+</html>
