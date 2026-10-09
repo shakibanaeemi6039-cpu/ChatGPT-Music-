@@ -1,4 +1,4 @@
-
+// Initial deployment through Cloudflare Git integration
 const SERVER_INFO = {
   name: "chatgpt-music-mcp",
   version: "1.0.0"
